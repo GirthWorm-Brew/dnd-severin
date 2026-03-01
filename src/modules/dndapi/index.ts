@@ -1,3 +1,5 @@
+// Entry point for open5e data grab module
+
 import fs from "node:fs/promises";
 import { fetchOpen5eCollectionsAsJson } from "./types";
 
