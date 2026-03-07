@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>DnD Encounter Maker and Tracker</title>
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 		<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -9,26 +10,33 @@
     </head>
 
     <body>
-        <header>
-            <a class="landing" href="et_landing.html"><img src="logo_placeholder.png" alt="Encounter tracker landing page" class="header_icon"></a>
-            <nav class="btn-toolbar">
-                <a href="et_combat.html" class="btn btn-custom-primary">Combat Tracker</a>
-                <a href="et_characters.html" class="btn btn-custom-primary">Player Characters</a>
-                <a href="et_compendium.html" class="btn btn-custom-primary">Compendium</a>
-                <a href="et_generation.html" class="btn btn-custom-primary">Encounter Generator</a>
-            </nav>
-            <a class="account"><img src="account_icon.png" alt="View account" class="header_icon"></a>
-            <!--Currently no href for this anchor tag, as we don't have any make-an-account stuff setup-->
+        <header class="container-flow row">
+            <div class="col-1 logo-icon">
+                <a href="et_landing.html"><img src="logo_placeholder.png" alt="Encounter tracker landing page"></a>
+            </div>
+            <div class="col-10 navbar justify-content-center">
+                <nav class="btn-toolbar">
+                    <a href="et_combat.html" class="btn btn-custom-primary">Combat Tracker</a>
+                    <a href="et_characters.html" class="btn btn-custom-primary">Player Characters</a>
+                    <a href="et_compendium.html" class="btn btn-custom-primary">Compendium</a>
+                    <a href="et_generation.html" class="btn btn-custom-primary">Encounter Generator</a>
+                </nav>
+            </div>
+            <div class="col-1 account-icon">
+                <a class><img src="account_icon.png" alt="View account"></a>   
+                <!--Currently no href for this anchor tag, as we don't have any make-an-account stuff setup-->
+            </div>
         </header>
         <div>
             <h1 class="title">DnD Encounter Maker and Tracker</h1>
         </div>
         <div>
             <!--Different descriptions of functionality and corresponding pictures for each tab-->
+            <p>Enim nisi quis voluptate sunt cupidatat nisi ex aute. Enim Lorem consectetur commodo labore nisi aliquip labore enim voluptate cupidatat. Proident in laboris anim consectetur reprehenderit do do ea commodo sint anim cillum ullamco. Ut qui culpa ex commodo tempor enim non ex qui anim commodo.</p>
         </div>
         <footer>
             <p>
-                Team Worm Brew: Ashton, Colin, Nick, Ruari, Steven, Severin<br>
+                Team WormBrew: Ashton, Colin, Nick, Ruari, Steven, Severin<br>
                 Spring 2026
             </p>
         </footer>
