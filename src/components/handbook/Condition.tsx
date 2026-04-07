@@ -1,6 +1,10 @@
 import { Container } from "react-bootstrap";
 import { conditionsRetrieve } from "../../modules/open5e/sdk.gen";
-import { Condition } from "../../modules/open5e/types.gen";
+import {
+  Condition,
+  ConditionDescription,
+  GameSystem,
+} from "../../modules/open5e/types.gen";
 import { useState, useEffect } from "react";
 
 export default function ConditionPage({ id }: { id: string }) {
@@ -27,8 +31,30 @@ export default function ConditionPage({ id }: { id: string }) {
     );
   } else {
     return (
-      <Container>
-        <main className="page tocDepthH3" id="p1" data-index="0"></main>
+      <Container className="page tocDepthH3">
+        <main id="p1" data-index="0">
+          <h1>condition</h1>
+          <div className="columnWrapper"></div>
+          <h2>{condition.name}</h2>
+          <ul className="wide">
+            {condition.descriptions.map((desc, indes) => (
+              <li>
+                <strong>{desc.gamesystem}:</strong> {desc.desc}
+                <p>
+                  <em>{desc.document}</em>
+                </p>
+                <br />
+              </li>
+            ))}
+          </ul>
+          <a className="artist" href={condition.document.permalink}>
+            {condition.document.publisher.name}
+          </a>
+        </main>
+        <div className="footnote">
+          <p className="">{condition.document.display_name}</p>
+        </div>
+        <div className="pageNumber auto"></div>
       </Container>
     );
   }

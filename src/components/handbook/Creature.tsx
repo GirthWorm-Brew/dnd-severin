@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 import { creaturesList, creaturesRetrieve } from "../../modules/open5e/sdk.gen";
-import { Creature, CreatureAction, SpeedAll } from "../../modules/open5e/types.gen";
+import {
+  Creature,
+  CreatureAction,
+  SpeedAll,
+} from "../../modules/open5e/types.gen";
+import { Container } from "react-bootstrap";
 
 function SpeedBlock({ speed }: { speed: SpeedAll }) {
   const unit = speed.unit;
@@ -53,8 +58,8 @@ export default function CreaturePage({ id }: { id: string }) {
     );
   } else {
     return (
-      <>
-        <div className="phb page" id="p1" data-index="0">
+      <Container className="phb page">
+        <div id="p1" data-index="0">
           <h1>creature</h1>
           <div className="columnWrapper">
             <div
@@ -66,14 +71,19 @@ export default function CreaturePage({ id }: { id: string }) {
               }}
             ></div>
             {creature.illustration != null ? (
-              <img src={creature.illustration.url} alt={creature.illustration.alt_text} />
+              <img
+                src={creature.illustration.url}
+                alt={creature.illustration.alt_text}
+              />
             ) : null}
             <div className="block monster frame wide">
               <h2 id="creature">{creature.name}</h2>
               <p>
                 <em>
                   {creature.size.name} {creature.type.name} {creature.category}
-                  <span className="inline-block bonus">{creature.alignment}</span>
+                  <span className="inline-block bonus">
+                    {creature.alignment}
+                  </span>
                 </em>
               </p>
               <hr />
@@ -127,7 +137,8 @@ export default function CreaturePage({ id }: { id: string }) {
               ) : null}
               {creature.actions
                 .filter(
-                  (action: CreatureAction): boolean => action.action_type == "LEGENDARY_ACTION",
+                  (action: CreatureAction): boolean =>
+                    action.action_type == "LEGENDARY_ACTION",
                 )
                 .map((action) => (
                   <dl>
@@ -139,7 +150,9 @@ export default function CreaturePage({ id }: { id: string }) {
                     <dd>{action.usage_limits}</dd>
                   </dl>
                 ))}
-              {creature.actions.some((actionType) => actionType.action_type == "LAIR_ACTION") ? (
+              {creature.actions.some(
+                (actionType) => actionType.action_type == "LAIR_ACTION",
+              ) ? (
                 <h3 id="actions">Lair Actions</h3>
               ) : null}
               {creature.actions
@@ -153,7 +166,9 @@ export default function CreaturePage({ id }: { id: string }) {
                     <dd>{action.legendary_action_cost}</dd>
                   </dl>
                 ))}
-              {creature.actions.some((actionType) => actionType.action_type == "REACTION") ? (
+              {creature.actions.some(
+                (actionType) => actionType.action_type == "REACTION",
+              ) ? (
                 <h3 id="actions">Reactions</h3>
               ) : null}
               {creature.actions
@@ -167,7 +182,9 @@ export default function CreaturePage({ id }: { id: string }) {
                     <dd>{action.legendary_action_cost}</dd>
                   </dl>
                 ))}
-              {creature.actions.some((actionType) => actionType.action_type == "ACTION") ? (
+              {creature.actions.some(
+                (actionType) => actionType.action_type == "ACTION",
+              ) ? (
                 <h3 id="actions">Actions</h3>
               ) : null}
               {creature.actions
@@ -181,7 +198,9 @@ export default function CreaturePage({ id }: { id: string }) {
                     <dd>{action.legendary_action_cost}</dd>
                   </dl>
                 ))}
-              {creature.actions.some((actionType) => actionType.action_type == "BONUS_ACTION") ? (
+              {creature.actions.some(
+                (actionType) => actionType.action_type == "BONUS_ACTION",
+              ) ? (
                 <h3 id="actions">Bonus Actions</h3>
               ) : null}
               {creature.actions
@@ -196,13 +215,16 @@ export default function CreaturePage({ id }: { id: string }) {
                   </dl>
                 ))}
             </div>
+            <a className="artist" href={creature.document.permalink}>
+              {creature.document.publisher.name}
+            </a>
           </div>
         </div>
         <div className="footnote">
           <p className="">{creature.document.display_name}</p>
         </div>
         <div className="pageNumber auto"></div>
-      </>
+      </Container>
     );
   }
 }
