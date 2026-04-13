@@ -41,26 +41,6 @@ export default function ArmorPage({ id }: { id: string }) {
                 {armor.ac_display}{" "}
               </p>
             ) : null}
-<<<<<<< HEAD
-            {armor.strength_score_required != null ? (
-              <li>
-                <strong>Requires: </strong> {armor.strength_score_required}{" "}
-                Strength
-              </li>
-            ) : null}
-          </ul>
-        </div>
-        <a className="artist" href={armor.document.permalink}>
-          {armor.document.publisher.name}
-        </a>
-        <div className="footnote">
-          <p className="">{armor.document.name}</p>
-        </div>
-        <div className="pageNumber auto"></div>
-      </main>
-    </Container>
-  );
-=======
             <ul className="wide">
               {armor.grants_stealth_disadvantage ? <li>Disadvantage on stealth checks</li> : null}
               {typeof armor.strength_score_required == "number" ? (
@@ -81,5 +61,4 @@ export default function ArmorPage({ id }: { id: string }) {
       </Container>
     );
   }
->>>>>>> 8e65783e4b1d6b32c4511f06e4ebddf7becd5095
 }
