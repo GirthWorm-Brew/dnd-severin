@@ -3,9 +3,6 @@ import spellListJson from "../../../data/spelllist/bard.json"
 
 const spellList = spellListJson;
 
-
-
-
 export default function SpellList() {
   return (
     <Container>
