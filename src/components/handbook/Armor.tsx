@@ -26,8 +26,7 @@ export default function Armor() {
             {armor.grants_stealth_disadvantage ? (
               <li>Disadvantage on stealth checks</li>
             ) : null}
-            {armor.strength_score_required != null ||
-            armor.strength_score_required > 0 ? (
+            {armor.strength_score_required != null ? (
               <li>
                 <strong>Requires: </strong> {armor.strength_score_required}{" "}
                 Strength
